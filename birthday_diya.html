@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Diya ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body{
+        margin:0;
+        font-family:'Poppins', sans-serif;
+        background:#ffebf0;
+        overflow-x:hidden;
+        color: #fff;
+    }
+    h1,h2,h3,p{margin:0;}
+    .section{
+        min-height:100vh;
+        padding:60px 20px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+    }
+    .heart{
+        position:fixed;
+        bottom:-10px;
+        color:#ff3263;
+        font-size:20px;
+        animation: floatUp 5s linear infinite;
+        opacity:0.7;
+    }
+    @keyframes floatUp{
+        0%{transform:translateY(0) scale(1); opacity:.8;}
+        100%{transform:translateY(-120vh) scale(1.8); opacity:0;}
+    }
+    .btn{
+        padding:15px 30px;
+        background:#ff3263;
+        color:white;
+        border:none;
+        border-radius:30px;
+        margin-top:25px;
+        font-size:18px;
+        cursor:pointer;
+        transition:.3s;
+    }
+    .btn:hover{transform:scale(1.1);}
+    .love-card{
+        background:white;
+        padding:25px;
+        border-radius:20px;
+        max-width:700px;
+        box-shadow:0 6px 20px rgba(0,0,0,0.15);
+        color:#000;
+    }
+    .option-btn{
+        padding:12px 20px;
+        margin:8px;
+        border:none;
+        border-radius:20px;
+        background:#ff3263;
+        color:white;
+        cursor:pointer;
+        transition:.3s;
+    }
+    .option-btn:hover{transform:scale(1.05);}
+    .cake-container{margin-top:30px; position: relative;}
+    .cake{
+        width:120px;
+        height:80px;
+        background:#ff5f7e;
+        border-radius:0 0 20px 20px;
+        position: relative;
+    }
+    .candle{
+        width:10px;
+        height:25px;
+        background:#fff200;
+        position:absolute;
+        top:-25px;
+        left:50%;
+        transform:translateX(-50%);
+        border-radius:3px;
+    }
+    .flame{
+        width:6px;
+        height:10px;
+        background:orange;
+        border-radius:50%;
+        position:absolute;
+        top:-10px;
+        left:50%;
+        transform:translateX(-50%);
+        animation: flicker 0.5s infinite alternate;
+    }
+    @keyframes flicker{
+        0%{transform:translateX(-50%) scaleY(1);}
+        50%{transform:translateX(-50%) scaleY(1.3);}
+        100%{transform:translateX(-50%) scaleY(1);}
+    }
+    .balloon{
+        width:60px;
+        height:80px;
+        background:#ff5f7e;
+        border-radius:50%;
+        position:relative;
+        margin:10px;
+        display:inline-block;
+        animation:float 3s ease-in-out infinite;
+        cursor:pointer;
+    }
+    .balloon:after{
+        content:"";
+        width:2px;
+        height:30px;
+        background:#666;
+        position:absolute;
+        left:50%;
+        transform:translateX(-50%);
+        top:80px;
+    }
+    @keyframes float {
+        0%{transform:translateY(0);}
+        50%{transform:translateY(-20px);}
+        100%{transform:translateY(0);}
+    }
+</style>
+</head>
+<body>
+
+<script>
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3 + Math.random()*5)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),8000);
+}
+setInterval(createHeart,500);
+</script>
+
+<div class="section" id="section1">
+    <h1 style="color:red;">Happy Birthday My Love, Diya ❤️</h1>
+    <p style="margin-top:10px; font-size:20px;">I made something special for you…</p>
+
+    <div class="love-card" style="margin-top:30px;">
+        <h2>My Dearest Diya, 💌</h2>
+        <p style="margin-top:15px; font-size:18px; line-height:1.7;">
+            Every moment with you feels like a dream I never want to wake from.  
+            Your laughter is my favorite melody, your smile my sunshine, and your love my greatest treasure.  
+            You are the reason my heart beats faster, my soul feels complete, and my life feels magical.  
+            <br><br>
+            Being with you has taught me the true meaning of love — caring, patience, joy, and endless passion.  
+            I promise to hold your hand through every storm, cherish your every smile, and make you feel as special as you make me feel every day.  
+            <br><br>
+            You are my heart, my soul, my everything… and I will love you more with every passing day.
+        </p>
+        <h3 style="margin-top:20px; color:#ff3263;">— Yours forever, ❤️ Always</h3>
+    </div>
+
+    <button class="btn" onclick="goTo(2)">Next →</button>
+</div>
+
+<div class="section" id="section2" style="display:none;">
+    <h1>Make a Wish! 🎂</h1>
+    <div class="cake-container">
+        <div class="cake"></div>
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+    </div>
+    <button class="btn" onclick="goTo(3)" style="margin-top:30px;">Next →</button>
+</div>
+
+<div class="section" id="section3" style="display:none;">
+    <h1>Let’s Play a Little, Birthday Girl! 🎉</h1>
+    <div class="love-card" style="margin-top:30px;" id="mcqCard">
+        <h2 id="mcqQuestion"></h2>
+        <div id="mcqOptions" style="margin-top:20px;"></div>
+    </div>
+    <button class="btn" onclick="goTo(4)" id="nextBtn" style="display:none;">Next →</button>
+</div>
+
+<div class="section" id="section4" style="display:none;">
+    <h1>Pop the balloons for a surprise! 🎈</h1>
+    <div id="balloonArea" style="margin-top:40px;">
+        <div class="balloon" onclick="pop(this)"></div>
+        <div class="balloon" onclick="pop(this)"></div>
+        <div class="balloon" onclick="pop(this)"></div>
+        <div class="balloon" onclick="pop(this)"></div>
+    </div>
+
+    <p id="finalMsg" style="margin-top:30px; font-size:20px; color:#ff3263;"></p>
+</div>
+
+<script>
+function goTo(n){
+    document.getElementById("section1").style.display="none";
+    document.getElementById("section2").style.display="none";
+    document.getElementById("section3").style.display="none";
+    document.getElementById("section4").style.display="none";
+    document.getElementById("section"+n).style.display="flex";
+}
+
+const quizQuestions = [
+    {
+        q: "1. If I could steal one of your thoughts tonight, which would it be? 🖤",
+        options: [
+            "The one where you smile thinking of me 😏",
+            "The secret dream you haven’t told anyone 🌙",
+            "The mischief hiding behind your calm gaze ✨"
+        ]
+    },
+    {
+        q: "2. If I could play a little trick on your heart, what would it feel? 😈❤️",
+        options: [
+            "A flutter that leaves you breathless 🌌",
+            "A teasing whisper only your soul understands 💫",
+            "A little thrill that makes you laugh secretly 😏"
+        ]
+    },
+    {
+        q: "3. If the night could hear our wishes, what would it whisper back? 🌑✨",
+        options: [
+            "It knows we are meant for endless mischief together 😈",
+            "It promises to keep our secrets safe forever 🖤",
+            "It will twinkle brighter just to match our smiles 🌟"
+        ]
+    },
+    {
+        q: "4. If I could steal your heart forever, how would you let me? 🖤",
+        options: [
+            "In the shadows where no one sees us 🌒",
+            "Through a kiss that lingers like a secret 💋",
+            "By surrendering completely to my love 💌"
+        ]
+    }
+];
+
+let currentQ = 0;
+const questionEl = document.getElementById("mcqQuestion");
+const optionsEl = document.getElementById("mcqOptions");
+const nextBtn = document.getElementById("nextBtn");
+
+function loadQuestion(){
+    const q = quizQuestions[currentQ];
+    questionEl.innerHTML = q.q;
+    optionsEl.innerHTML = "";
+    q.options.forEach(option=>{
+        const btn = document.createElement("button");
+        btn.className="option-btn";
+        btn.innerHTML=option;
+        btn.onclick=()=>selectOption();
+        optionsEl.appendChild(btn);
+    });
+}
+
+function selectOption(){
+    if(currentQ < quizQuestions.length -1){
+        currentQ++;
+        loadQuestion();
+    } else {
+        nextBtn.style.display="block";
+    }
+}
+
+loadQuestion();
+
+let popped=0;
+function pop(balloon){
+    balloon.style.background="transparent";
+    balloon.style.animation="none";
+    balloon.innerHTML="💥";
+    popped++;
+    if(popped>=4){
+        document.getElementById("finalMsg").innerHTML=
+        "❤️ Surprise, My Angel Diya! ❤️<br><br>" +
+        "This is your first birthday with me, and though we are in a long distance, " +
+        "I pray that in the next few years we celebrate together hand in hand. 💖<br><br>" +
+        "Every heartbeat whispers your name, every smile reminds me of your soul. 🌹<br>" +
+        "You are mine, my everything — caring, loyal, my little Chotadon. ❤️<br>" +
+        "I hope I will celebrate your birthday until my last breath of life. 🌟<br><br>" +
+        "<i>"If kisses were stars, I'd give you the sky; if hugs were oceans, I'd swim forever with you."</i> 💌<br><br>" +
+        "Happy Birthday, my princess. I love you more than words can ever express. 💘";
+    }
+}
+</script>
+
+</body>
+</html>
